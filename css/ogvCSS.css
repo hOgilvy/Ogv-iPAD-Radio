@@ -1,0 +1,471 @@
+/*
+Copyright (c) 2011,Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:http://developer.yahoo.com/yui/license.html
+version:2.9.0
+*/
+html{color:.000;background:.FFF}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,select,p,blockquote,th,td{margin:0;padding:0}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0}
+address,button,caption,cite,code,dfn,em,input,optgroup,option,select,strong,textarea,th,var{font:inherit}
+del,ins{text-decoration:none}
+li{list-style:none}
+caption,th{text-align:left}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+q:before,q:after{content:''}
+abbr,acronym{border:0;font-variant:normal}
+sup{vertical-align:baseline}
+sub{vertical-align:baseline}
+legend{color:.000}
+
+/*
+	CONTAINER - Landscape
+*/
+
+#ogvStage {
+	width: 1024px;
+	height: 768px;
+	position: relative;
+	overflow: hidden;
+}
+
+#videoScreen{
+	top:0;
+	left:0;
+	position: relative;
+}
+
+#loop{
+	z-index: 1;
+}
+
+#step1 *,
+#step2 *,
+#step3 * {
+	position: absolute;
+
+}
+/*
+	STEP 1
+*/
+#step1 {
+	height: 768px;
+}
+/* Rádio: */
+#radio-on, #radio-off{
+	bottom:-140px;
+	left:320px;
+	position: absolute;
+	}
+	#radio-on{
+		width:422px; height:129px; z-index:3; background:url(../imgs/radio-on.png) no-repeat;
+	}
+	#radio-off{
+		width:422px; height:129px; z-index:3; background:url(../imgs/radio-off.png) no-repeat;
+	}
+
+#radio-fade{
+	width:66px; height:66px; bottom:55px; left:390px; pointer-events:none; z-index:4; opacity:0; background:url(../imgs/radio-glow.png) no-repeat;
+}
+#radio-title{
+	width:422px; height:54px; left:320px; bottom:-100px; position: absolute; z-index:1; background:url(../imgs/radio-textUP.png) no-repeat;
+}
+
+.radio-text-screen-1{
+	width:188px; height:48px; bottom:66px; opacity:0; position: absolute; left:481px; z-index:3; background:url(../imgs/screen-radio-1.jpg); pointer-events:none;
+}
+.radio-text-screen-2{
+	width:188px; height:48px; bottom:66px; opacity:0; position: absolute; left:481px; z-index:3; background:url(../imgs/screen-radio-2.jpg); pointer-events:none;s
+}
+
+/* Animate Rádio */
+.radio-init{
+	-webkit-animation:radioInit .6s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+.radio-out{
+	-webkit-animation:radioOut .6s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+.radio-fade{
+	-webkit-animation:radioFade 1s infinite;
+	-webkit-animation-fill-mode: forwards;
+}
+
+.radio-title-init{
+	-webkit-animation:radioTitle 1.2s;
+	-webkit-animation-fill-mode: forwards;
+}
+.radio-title-out{
+	-webkit-animation:radioTitleOut .8s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+.radio-text-screen-init{
+	-webkit-animation:radioText 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+.radio-text-screen-out{
+	-webkit-animation:radioTextOut .8s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+/* Animation Fade Out */
+.fade-out{
+	-webkit-animation:FadeOut 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+/*
+	STEP 2
+*/
+#step2 {
+	height: 768px;
+	position: relative;
+	display: none;
+	background:url(../imgs/bg-red.jpg) no-repeat;
+}
+#claro{ width:107px; height:107px; bottom:43px; right:51px; opacity:1; background:url(../imgs/claro.png) no-repeat;}
+#text1_1{ width:470px; height:50px; top:255px; right:30px; opacity:0; z-index:1; background:url(../imgs/texts-init.png) -470px  0px;}
+#text2_1{ width:470px; height:50px; top:310px; right:30px; opacity:0; z-index:1; background:url(../imgs/texts-init.png) -470px  -51px;}
+#text3_1{ width:470px; height:46px; top:255px; right:50px; opacity:0; z-index:1; background:url(../imgs/texts-init.png) -470px  -109px;}
+#text4_1{ width:470px; height:44px; top:310px; right:50px; opacity:0; z-index:1; background:url(../imgs/texts-init.png) -470px  -155px;}
+
+#textFinish-1{width:114px; height:23px; top:115px; left:170px; opacity:0; z-index:1; background:url(../imgs/txt-final-1.png) no-repeat;}
+#textFinish-2{width:166px; height:18px; top:338px; left:638px; opacity:0; z-index:1; background:url(../imgs/txt-final-2.png) no-repeat;}
+#textFinish-3{width:178px; height:25px; top:365px; left:676px; opacity:0; z-index:1; background:url(../imgs/txt-final-3.png) no-repeat;}
+
+#txtInf-1{width:292px; height:24px; bottom:92px; left:380px; opacity:0; z-index:1; background:url(../imgs/txtInf-1.png) no-repeat;}
+#txtInf-2{width:476px; height:29px; bottom:86px; left:290px; opacity:0; z-index:1; background:url(../imgs/txtInf-2.png) no-repeat;}
+#txtInf-3{width:157px; height:18px; bottom:91px; left:450px; opacity:0; z-index:1; background:url(../imgs/txtInf-3.png) no-repeat;}
+#txtInf-4{width:431px; height:23px; bottom:92px; left:320px; opacity:0; z-index:1; background:url(../imgs/txtInf-4.png) no-repeat;}
+#txtInf-fixo{width:618px; height:23px; cursor: pointer; bottom:62px; left:224px; opacity:0; z-index:1; background:url(../imgs/txtInf-fixo.png) no-repeat;}
+
+
+/* Animate Text's */
+.text1-init{
+	-webkit-animation:StartTextStepOne 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+.text1-out{
+	-webkit-animation:OutTextStepOne .6s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+.textFinish-init{
+	-webkit-animation:textFinish 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+.textFinish-out{
+	-webkit-animation:textFinishOut 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+/* icon's */ 
+#icon-1, #icon-2, #icon-3, #icon-4, #icon-5{ height:166px; opacity:0; bottom:-200px;}
+#icon-1{
+	width:189px; z-index:6; left:450px; background:url(../imgs/download.png); -webkit-transform:scale(1,1);
+}
+#icon-2{
+	width:177px; z-index:5; left:199px; background:url(../imgs/balao.png); -webkit-transform:scale(.8,.8);
+}
+#icon-3{
+	width:213px; z-index:5; left:592px; background:url(../imgs/claquete.png); -webkit-transform:scale(.8,.8);
+}
+#icon-4{
+	width:164px; z-index:4; left:292px; background:url(../imgs/camera.png); -webkit-transform:scale(.5,.5);
+}
+#icon-5{
+	width:214px; z-index:4; left:752px; background:url(../imgs/ps4.png); -webkit-transform:scale(.5,.5);
+}
+
+/* Animate Icon's */
+.icon1-init{
+	-webkit-animation:StarIcon1 .6s;
+	-webkit-animation-fill-mode: forwards;
+}
+.icon2-init{
+	-webkit-animation:StarIcon2 .7s;
+	-webkit-animation-fill-mode: forwards;
+}
+.icon3-init{
+	-webkit-animation:StarIcon3 .8s;
+	-webkit-animation-fill-mode: forwards;
+}
+.icon4-init{
+	-webkit-animation:StarIcon4 .9s;
+	-webkit-animation-fill-mode: forwards;
+}
+.icon5-init{
+	-webkit-animation:StarIcon5 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+/* 
+============ Animate ============
+=================================
+
+/*
+	Animations Rádio
+*/
+@-webkit-keyframes radioInit{
+	0%{bottom:-100px;}
+	100%{bottom:22px;}
+}
+
+@-webkit-keyframes radioFade{
+	0%{opacity:0;}
+	50%{opacity:1;}
+	100%{opacity:0;}
+}
+
+@-webkit-keyframes radioOut{
+	0%{bottom:0;}
+	100%{bottom:-180px;}
+}
+
+@-webkit-keyframes radioTitle{
+	0%{bottom:-100px;}
+	100%{bottom:130px;}
+}
+
+@-webkit-keyframes radioTitleOut{
+	0%{bottom:100px;}
+	100%{bottom:-20px;}
+}
+
+@-webkit-keyframes radioText{
+	0%{opacity:0;}
+	100%{opacity:1;}
+}
+
+@-webkit-keyframes radioTextOut{
+	0%{opacity:1;}
+	100%{opacity:0;}
+}
+
+
+/*
+	Animations Text's
+*/
+@-webkit-keyframes StartTextStepOne{
+	0%{opacity:0; right:-200px;}
+	100%{opacity:1; right:30px;}
+}
+
+@-webkit-keyframes OutTextStepOne{
+	0%{opacity:1; right:30px;}
+	100%{opacity:0; right:600px;}
+}
+
+
+/* Animations Fade Out */
+@-webkit-keyframes FadeOut{
+	0%{opacity:1; display:block;}
+	100%{opacity:0; display:none;}
+}
+
+
+/* Animation Text's Finish Step */
+@-webkit-keyframes textFinish{
+	0%{opacity:0;}
+	100%{opacity:1;}
+}
+@-webkit-keyframes textFinishOut{
+	0%{opacity:1;}
+	100%{opacity:0;}
+}
+
+/* Animations Icon's Start*/
+@-webkit-keyframes StarIcon1{
+	0%{bottom:-200px;}
+	100%{bottom:180px; opacity:1;}
+}
+
+@-webkit-keyframes StarIcon2{
+	0%{bottom:-200px; left:450px;}
+	80%{bottom:170px; left:450px; opacity:1;}
+	100%{bottom:182px; left:292px; opacity:1;}
+}
+
+@-webkit-keyframes StarIcon3{
+	0%{bottom:-200px; left:450px;}
+	80%{bottom:170px; left:450px; opacity:1;}
+	100%{bottom:182px; left:592px; opacity:1;}
+}
+
+@-webkit-keyframes StarIcon4{
+	0%{bottom:-200px; left:450px;}
+	80%{bottom:170px; left:450px; opacity:1;}
+	100%{bottom:182px; left:199px; opacity:1;}
+}
+
+@-webkit-keyframes StarIcon5{
+	0%{bottom:-200px; left:380px;}
+	80%{bottom:170px; left:380px; opacity:1;}
+	100%{bottom:182px; left:694px; opacity:1;}
+}
+
+
+/* Animate Icon's 2>3 */
+.icon1-2-init{
+	-webkit-animation:StarIcon1-2 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+.icon2-2-init{
+	-webkit-animation:StarIcon2-2 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+.icon3-2-init{
+	-webkit-animation:StarIcon3-2 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+.icon4-2-init{
+	-webkit-animation:StarIcon4-2 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+.icon5-2-init{
+	-webkit-animation:StarIcon5-2 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+/* Animations Icon's Progress*/
+@-webkit-keyframes StarIcon1-2{
+	0%{bottom:180px; opacity:1;}
+	100%{bottom:180px; left:292px; opacity:1; z-index:4; -webkit-transform:scale(.8,.8);}
+}
+
+@-webkit-keyframes StarIcon2-2{
+	0%{bottom:182px; left:292px; opacity:1;}
+	100%{bottom:182px; left:199px; opacity:1; z-index:3; -webkit-transform:scale(.5,.5);}
+}
+
+@-webkit-keyframes StarIcon3-2{
+	0%{bottom:182px; left:592px; opacity:1;}
+	100%{bottom:182px; left:450px; opacity:1; z-index:6; -webkit-transform:scale(1,1);}
+}
+
+@-webkit-keyframes StarIcon4-2{
+	0%{bottom:182px; opacity:1;}
+	100%{bottom:182px; left:752px; opacity:1; z-index:3; -webkit-transform:scale(.5,.5);}
+}
+
+@-webkit-keyframes StarIcon5-2{
+	0%{bottom:182px; opacity:1; left:694px;}
+	100%{bottom:182px; left:612px; opacity:1; z-index:4; -webkit-transform:scale(.8,.8);}
+}
+
+/* Animate Icon's 3>4 */
+.icon1-3-init{
+	-webkit-animation:StarIcon1-3 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+.icon2-3-init{
+	-webkit-animation:StarIcon2-3 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+.icon3-3-init{
+	-webkit-animation:StarIcon3-3 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+.icon4-3-init{
+	-webkit-animation:StarIcon4-3 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+.icon5-3-init{
+	-webkit-animation:StarIcon5-3 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+/* Animations Icon's Progress*/
+@-webkit-keyframes StarIcon1-3{
+	0%{bottom:182px; left: 292px; opacity:1; -webkit-transform:scale(.8,.8); }
+	100%{bottom:182px; left:182px; opacity:1; z-index:4; -webkit-transform:scale(.5,.5);}
+}
+
+@-webkit-keyframes StarIcon2-3{
+	0%{bottom:182px; left:252px; opacity:1; -webkit-transform:scale(.5,.5);}
+	100%{bottom:182px; left:746px; opacity:1; z-index:2; -webkit-transform:scale(.5,.5);}
+}
+
+@-webkit-keyframes StarIcon3-3{
+	0%{bottom:182px; left:450px; opacity:1; -webkit-transform:scale(1,1);}
+	100%{bottom:182px; left:292px; opacity:1; z-index:4; -webkit-transform:scale(.8,.8);}
+}
+
+@-webkit-keyframes StarIcon4-3{
+	0%{bottom:182px; left:752px; opacity:1; -webkit-transform:scale(.5,.5);}
+	100%{bottom:182px; left:642px; opacity:1; z-index:4; -webkit-transform:scale(.8,.8);}
+}
+
+@-webkit-keyframes StarIcon5-3{
+	0%{bottom:182px; left:612px; opacity:1; -webkit-transform:scale(.8,.8);}
+	100%{bottom:182px; left:450px; opacity:1; z-index:6; -webkit-transform:scale(1,1);}
+}
+
+
+
+/* Animate Icon's 4>5 */
+.icon1-4-init{
+	-webkit-animation:StarIcon1-4 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+.icon2-4-init{
+	-webkit-animation:StarIcon2-4 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+.icon3-4-init{
+	-webkit-animation:StarIcon3-4 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+.icon4-4-init{
+	-webkit-animation:StarIcon4-4 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+.icon5-4-init{
+	-webkit-animation:StarIcon5-4 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+/* Animations Icon's Progress*/
+@-webkit-keyframes StarIcon1-4{
+	0%{bottom:182px; left: 182px; opacity:1; -webkit-transform:scale(.5,.5); }
+	100%{bottom:182px; left:746px; opacity:1; z-index:2; -webkit-transform:scale(.5,.5);}
+}
+
+@-webkit-keyframes StarIcon2-4{
+	0%{bottom:182px; left:752px; opacity:1; z-index:3; -webkit-transform:scale(.5,.5);}
+	100%{bottom:182px; left:642px; opacity:1; z-index:3; -webkit-transform:scale(.8,.8);}
+}
+
+@-webkit-keyframes StarIcon3-4{
+	0%{bottom:182px; left:292px; opacity:1; -webkit-transform:scale(.8,.8);}
+	100%{bottom:182px; left:182px; opacity:1; z-index:4; -webkit-transform:scale(.5,.5);}
+}
+
+@-webkit-keyframes StarIcon4-4{
+	0%{bottom:182px; left:642px; opacity:1; -webkit-transform:scale(.8,.8);}
+	100%{bottom:182px; left:490px; opacity:1; z-index:4; -webkit-transform:scale(1,1);}
+}
+
+@-webkit-keyframes StarIcon5-4{
+	0%{bottom:182px; left:450px; opacity:1; -webkit-transform:scale(1,1);}
+	100%{bottom:182px; left:292px; opacity:1; z-index:6; -webkit-transform:scale(.8,.8);}
+}
+
+/* 
+	Media-Queuries
+*/
+@media only screen and (min-device-width:768px) and (orientation: portrait) {
+    #ogvStage{
+    	width:768px;
+    	height:1024px;
+    	background:url(../imgs/portrait.jpg) no-repeat;
+    	}
+		  #step1, #step2, #videoScreen, #loop, #radio-fade{
+    		display:none;
+    	}
+    }
+}
